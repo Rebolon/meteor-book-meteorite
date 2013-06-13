@@ -9,10 +9,10 @@ Template.postSubmit.events({
 		};
 
 		Meteor.call('post', post, function(error, id) {
-console.log('inside callback, postId: ', id);
 			if (error)
 				return alert(error.reason);
-			//Meteor.Router.to('postsList');
 		});
+
+		Meteor.Router.to('postsList');
 	}
 });

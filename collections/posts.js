@@ -43,12 +43,6 @@ Meteor.methods({
 		}
 
 		var postId = Posts.insert(post);
-		/* personal hack coz the code seems to fail because the client views wait for server response to allow callback that will use Router... sad coz latency compensation seems to work but the behavior is not what we want : callback should be called when client side meteor methods post return postId.
-		   so i decided to do the redirection directly here and i ask for more explanation on the github of Microscope project.
-		*/
-		if (this.isSimulation) {
-			Meteor.Router.to('postsList');
-		}
 		return postId;
 	}
 });
